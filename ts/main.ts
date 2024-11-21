@@ -33,7 +33,11 @@ function main() {
  * @returns A promise that resolves to a RandomDuck object
  */
 function getDuck(): Promise<RandomDuck> {
-    return fetch('https://random-d.uk/api/v2/random')
+    return fetch('https://random-d.uk/api/v2/random', {
+        headers: {
+            
+        }
+    })
             .then(response => response.json())
             .then((data: RandomDuck) => {
                 return new RandomDuck(data.message, data.url);
